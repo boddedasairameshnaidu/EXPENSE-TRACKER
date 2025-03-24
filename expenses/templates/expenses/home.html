@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Expense Manager</title>
+</head>
+<body>
+    <h2>Expense Manager</h2>
+    <a href="{% url 'add_expense' %}">Add Expense</a>
+    <a href="{% url 'export_expenses' %}">Export to Excel</a>
+    <img src="{% url 'qr_code' %}" alt="QR Code">
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense.date }} - ₹{{ expense.amount }} ({{ expense.category }}) - {{ expense.payment_method }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
